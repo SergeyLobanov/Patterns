@@ -1,7 +1,6 @@
 package epam.patterns.flyweight.example;
 
-import java.util.List;
-import java.util.ArrayList;
+import java.util.*;
 
 public class FlyweightApp {
 	
@@ -21,7 +20,7 @@ public class FlyweightApp {
 		Random rand = new Random();
 		for (Shape shape : shapes) {
 			int x = rand.nextInt(100);
-			int x = rand.nextInt(100);
+			int y = rand.nextInt(100);
 			shape.draw(x, y);
 		}
 	}
@@ -60,7 +59,7 @@ class Square implements Shape {
 class ShapeFactory {
 	private static final Map<String, Shape> shapes = new HashMap<>();
 	
-	public Shape getShape(Sting shapeName) {
+	public Shape getShape(String shapeName) {
 		Shape shape = shapes.get(shapeName);
 		
 		if (shape == null) {
@@ -75,7 +74,7 @@ class ShapeFactory {
 					shape = new Square();
 					break;
 			}
-			shape.put(shapeName, shape);
+			shapes.put(shapeName, shape);
 		}
 		
 		return shape;

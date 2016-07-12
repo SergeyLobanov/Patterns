@@ -17,11 +17,11 @@ public class StrategyMain {
 }
 // Context
 class Human {
-    List<Place> places;
+    private List<Place> places;
 
     public void doSomething() {
 		for (Place place : places) {
-			places.doSomething(this);
+			place.doSomething(this);
 		}
     }
 
